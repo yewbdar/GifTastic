@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style>
+    
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+    <div class="col-lg-12 " id="button-holder"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-8 ">
+    <div id="gif-image-view"></div>
+</div>
+<div class="col-lg-4 ">
+    <label>Add Topic</label>
+    <input type="text" id="topic"/>
+    <input class="ml-2" type="submit" id="add" value="Add">
+</div>
+     </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    
+    var gifImage = {
+            APIKey: "IBh0Q9Yv3uGFbrSGFBma1UCLfOUBOEl7",
+            topics: ["cat", "dog", "bird"],
+            isImageClick: 0,
+            copeOfResponse: 0,
+            selectedGifType: null,
+            //creat and display each image 
+            
+            creatButton: function () {
+                $("#button-holder").empty();
+                for (var i = 0; i < this.topics.length; i++) {
+
+                    var butn = $("<button>");
+                    butn.addClass("gif-button");
+                    butn.attr("gif", this.topics[i]);
+                    butn.css({ "width": "70", "height": "30", "margin": "0.5%" ,"background-color":"rgb(110, 210, 210)"})
+
+                    butn.text(this.topics[i]);
+                    $("#button-holder").append(butn);
+                }
+
+            },
+
+
+        }
+
+    
+    
+    
+    </script>
+
+
+
+
+</body>
+</html>
