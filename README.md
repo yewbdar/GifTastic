@@ -12,13 +12,13 @@ clone repo and
 -bootstrap 4 -https://v4-alpha.getbootstrap.com/
 
 # Built with
--visual code
+-visual code ,
 -terminal
 
 # Authors
 yewbdar girma
 
 # Acknowledgment
-All stack overflow contributer
-UT,bootcamp instractours
+-All stack overflow contributer ,
+-UT,bootcamp instractours
 
