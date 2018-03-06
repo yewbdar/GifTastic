@@ -83,7 +83,7 @@
         }
         //get API data by  using giphy url ,  put the response in variable and run display displayGifImages method .
         function loadApi(topic) {
-            var url = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=" + gifImage.APIKey + "&limit=10";
+            var url = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=" + gifImage.APIKey + "&limit=10";
             $.ajax({ url: url, method: "GET" }).then(function (response) {
                 debugger;
                 gifImage.copeOfResponse = response.data;
