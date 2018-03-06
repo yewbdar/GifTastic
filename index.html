@@ -12,7 +12,6 @@
         .body {
             background-color: rgba(63, 191, 191, 0.1);
         }
-
         .submit {
             background-color: "rgb(110, 210, 210)";
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -42,7 +41,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-
         var gifImage = {
             APIKey: "IBh0Q9Yv3uGFbrSGFBma1UCLfOUBOEl7",
             topics: ["cat", "dog", "bird", "hello", "goodbye", "sweet", "baby", "apple", "dance", "morning", "bad", "up", "lol", "cute"],
@@ -51,16 +49,13 @@
             selectedGifType: null,
             //create and display for each of API array of element  
             displayGifImages: function (x) {
-
                 if (this.isImageClick) {
                     $("#gif-image-view").empty();
                     for (var i = 0; i < x.length; i++) {
                         var div = $("<div>")
                         var p = $("<h6>");
                         var image = $("<img>");
-
                         p.text("Rating : " + x[i].rating);
-
                         image.append(p);
                         image.addClass("gif-image");
                         image.attr("id", x[i].id)
@@ -70,44 +65,31 @@
                         div.append(image);
                         div.prepend(p)
                         $("#gif-image-view").append(div);
-
-
                     }
                 }
-
             },
-            //create button and display for each array of element
+            //create button and display for each topic array of element
             creatButton: function () {
                 $("#button-holder").empty();
                 for (var i = 0; i < this.topics.length; i++) {
-
                     var butn = $("<button>");
                     butn.addClass("gif-button");
                     butn.attr("topic", this.topics[i]);
-
                     butn.css({ "padding": "5px", "height": "30", "margin": "0.5%", "background-color": "rgb(110, 210, 210)", "box-shadow": "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" })
-
-
-
                     butn.text(this.topics[i]);
                     $("#button-holder").append(butn);
                 }
-
             },
-
-
         }
         //get API data by  using giphy url ,  put the response in variable and run display displayGifImages method .
         function loadApi(topic) {
             var url = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=" + gifImage.APIKey + "&limit=10";
             $.ajax({ url: url, method: "GET" }).then(function (response) {
                 debugger;
-
                 gifImage.copeOfResponse = response.data;
                 gifImage.displayGifImages(gifImage.copeOfResponse)
                 // map(item =>{item.url}));
                 console.log(response.data);
-
             })
         }
         //get selected topic and  run loadApi functin
@@ -122,12 +104,9 @@
             debugger;
             var idOfImage = $(this).attr("id");
             if (gifImage.isImageClick) {
-
                 for (var i = 0; i < gifImage.copeOfResponse.length; i++) {
                     if (gifImage.copeOfResponse[i].id === idOfImage) {
-
                         $("#" + idOfImage).prop("src", gifImage.copeOfResponse[i].images.downsized.url);
-
                     }
                 }
                 gifImage.isImageClick = false;
@@ -135,19 +114,15 @@
             else if (!gifImage.isImageClick) {
                 for (var i = 0; i < gifImage.copeOfResponse.length; i++) {
                     if (gifImage.copeOfResponse[i].id === idOfImage) {
-
                         $("#" + idOfImage).prop("src", gifImage.copeOfResponse[i].images["480w_still"].url);
-
                     }
                 }
                 gifImage.isImageClick = true;
             }
         });
-
+        //mouse hover 
         $(document).on("mouseenter", ".gif-button", function () { $(this).css("background-color", "rgba(110, 210, 210, 0.6)") })
         $(document).on("mouseleave", ".gif-button", function () { $(this).css("background-color", "rgb(110, 210, 210)") })
-
-
         gifImage.creatButton();//run creatButton method
         $("#add").on('click', function () {
             debugger
@@ -164,9 +139,7 @@
         });
         $("#topic").keyup(function () {
             debugger;
-
             $("#info").text(" ");
-
         });
     </script>
 
