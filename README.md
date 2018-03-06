@@ -5,7 +5,7 @@
 
 clone repo and
 - run command in terminal.
--run index.html to use  .
+-run index.html  .
 
 # Technology used
 -javascript ,jquery ,ajax ,API
